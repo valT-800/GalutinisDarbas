@@ -6,38 +6,38 @@ using Games.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace RestfulMovies
+namespace Games
 {
     /// <summary>
-    /// Controller class of seen
+    /// Controller class of PlayedGames
     /// </summary>
-    /// <param name="GetSeen"> Uses GET to print </param>>
-    /// <param name="PutSeen"> Uses PUT to update by id </param>>
-    /// <param name="PostSeen"> Uses POST to create new  </param>>
-    /// <param name="DeleteSeen"> Uses DELETE to delete data </param>>
+    /// <param name="GetPlayedGames"> Uses GET to print </param>>
+    /// <param name="PutPlayedGames"> Uses PUT to update by id </param>>
+    /// <param name="PostPlayedGames"> Uses POST to create new  </param>>
+    /// <param name="DeletePlayedGames"> Uses DELETE to delete data </param>>
     [Route("api/[controller]")]
     [ApiController]
-    public class SeenController : ControllerBase
+    public class PlayedGamesController : ControllerBase
     {
         private readonly GamesContext _context;
 
-        public SeenController(GamesContext context)
+        public PlayedGamesController(GamesContext context)
         {
             _context = context;
         }
 
-        // GET: api/Seen
+        // GET: api/PlayedGames
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Seen>>> GetSeen()
+        public async Task<ActionResult<IEnumerable<PlayedGames>>> GetPlayedGames()
         {
-            return await _context.Seen.ToListAsync();
+            return await _context.PlayedGames.ToListAsync();
         }
 
-        // GET: api/Seen/5
+        // GET: api/PlayedGames/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Seen>> GetSeen(int id)
+        public async Task<ActionResult<PlayedGames>> GetPlayedGames(int id)
         {
-            var seen = await _context.Seen.FindAsync(id);
+            var seen = await _context.PlayedGames.FindAsync(id);
 
             if (seen == null)
             {
@@ -47,18 +47,18 @@ namespace RestfulMovies
             return seen;
         }
 
-        // PUT: api/Seen/5
+        // PUT: api/PlayedGames/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSeen(int id, Seen seen)
+        public async Task<IActionResult> PutPlayedGames(int id, PlayedGames playedGames)
         {
-            if (id != seen.Id)
+            if (id != playedGames.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(seen).State = EntityState.Modified;
+            _context.Entry(playedGames).State = EntityState.Modified;
 
             try
             {
@@ -66,7 +66,7 @@ namespace RestfulMovies
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SeenExists(id))
+                if (!PlayedGamesExists(id))
                 {
                     return NotFound();
                 }
@@ -79,40 +79,40 @@ namespace RestfulMovies
             return NoContent();
         }
 
-        // POST: api/Seen
+        // POST: api/PlayedGames
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Seen>> PostSeen(Seen seen)
+        public async Task<ActionResult<PlayedGames>> PostPlayedGames(PlayedGames playedGames)
         {
             //if (_context.Game.Find().Id == seen.Id)
             //    Console.WriteLine("KAZKAAAS");
                 
-            _context.Seen.Add(seen);
+            _context.PlayedGames.Add(playedGames);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSeen", new { id = seen.Id }, seen);
+            return CreatedAtAction("GetPlayedGames", new { id = playedGames.Id }, playedGames);
         }
 
-        // DELETE: api/Seen/5
+        // DELETE: api/PlayedGames/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Seen>> DeleteSeen(int id)
+        public async Task<ActionResult<PlayedGames>> DeletePlayedGames(int id)
         {
-            var seen = await _context.Seen.FindAsync(id);
+            var seen = await _context.PlayedGames.FindAsync(id);
             if (seen == null)
             {
                 return NotFound();
             }
 
-            _context.Seen.Remove(seen);
+            _context.PlayedGames.Remove(seen);
             await _context.SaveChangesAsync();
 
             return seen;
         }
 
-        private bool SeenExists(int id)
+        private bool PlayedGamesExists(int id)
         {
-            return _context.Seen.Any(e => e.Id == id);
+            return _context.PlayedGames.Any(e => e.Id == id);
         }
     }
 }

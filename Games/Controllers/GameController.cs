@@ -89,7 +89,7 @@ namespace Games
             await _context.SaveChangesAsync();
 
             Dictionary<string, string> _Links = new Dictionary<string, string>();
-            _Links.Add("AddSeen", "/api/Seen");
+            _Links.Add("AddPlayedGames", "/api/PlayedGames");
             _Links.Add("AddWishlist", "/api/Wishlist");
 
             return Ok(JsonConvert.SerializeObject(new Model.HATEOAS() { Links = _Links }));

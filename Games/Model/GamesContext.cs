@@ -14,8 +14,9 @@ namespace Games.Model
         }
 
         public virtual DbSet<Game> Game { get; set; }
-        public virtual DbSet<Seen> Seen { get; set; }
+        public virtual DbSet<PlayedGames> PlayedGames { get; set; }
         public virtual DbSet<Wishlist> Wishlist { get; set; }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,19 +33,19 @@ namespace Games.Model
             {
                 entity.Property(e => e.Genre).IsUnicode(false);
 
-                entity.Property(e => e.Length).IsUnicode(false);
+                entity.Property(e => e.Levels).IsUnicode(false);
 
                 entity.Property(e => e.Name).IsUnicode(false);
             });
 
-            modelBuilder.Entity<Seen>(entity =>
+            modelBuilder.Entity<PlayedGames>(entity =>
             {
                 entity.Property(e => e.Comment).IsUnicode(false);
 
                 entity.HasOne(d => d.Game)
-                    .WithMany(p => p.Seen)
+                    .WithMany(p => p.PlayedGames)
                     .HasForeignKey(d => d.GameId)
-                    .HasConstraintName("FK__Seen__Game");
+                    .HasConstraintName("FK__PlayedGames__Game");
             });
 
             modelBuilder.Entity<Wishlist>(entity =>

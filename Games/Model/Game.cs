@@ -11,13 +11,13 @@ namespace Games.Model
     /// <param name="Id"> Holds id number </param>>
     /// <param name="Name"> Name of a Movie </param>>
     /// <param name="Genre"> Genre of a movie </param>>
-    /// <param name="Length"> TOtal runtime of movie in minutes </param>>
+    /// <param name="Levels"> TOtal runtime of movie in minutes </param>>
     /// <param name="Date"> Date of creation of a movie </param>>
     public partial class Game
     {
-        public Game()
+        public Game()     
         {
-            Seen = new HashSet<Seen>();
+            PlayedGames = new HashSet<PlayedGames>();
             Wishlist = new HashSet<Wishlist>();
         }
 
@@ -28,13 +28,13 @@ namespace Games.Model
         public string Name { get; set; }
         [StringLength(128)]
         public string Genre { get; set; }
-        [StringLength(128)]
-        public string Length { get; set; }
+        [Column(TypeName = "levels")]
+        public int? Levels { get; set; }
         [Column(TypeName = "date")]
         public DateTime? Date { get; set; }
 
         [InverseProperty("Game")]
-        public virtual ICollection<Seen> Seen { get; set; }
+        public virtual ICollection<PlayedGames> PlayedGames { get; set; }
         [InverseProperty("Game")]
         public virtual ICollection<Wishlist> Wishlist { get; set; }
     }

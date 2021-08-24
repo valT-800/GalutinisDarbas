@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Games.Model
@@ -16,8 +17,8 @@ namespace Games.Model
         public int Id { get; set; }
         [Column("Game_ID")]
         public int? GameId { get; set; }
-        [StringLength(128)]
-        public string Date { get; set; }
+        [Column("date")]
+        public DateTime? Date { get; set; }
 
         [ForeignKey(nameof(GameId))]
         [InverseProperty("Wishlist")]

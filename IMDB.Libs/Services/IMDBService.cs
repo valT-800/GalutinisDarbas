@@ -29,14 +29,14 @@ namespace IMDB.Libs.Services
             }
         }
 
-        public static async Task<string> getSimilarGames(string mID)
+        public static async Task<string> getSimilarGames(string gID)
         {
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("X-RapidAPI-Host", xRapid_Host);
                 client.DefaultRequestHeaders.Add("X-RapidAPI-Key", xRapid_Key);
 
-                var url = new Uri($"https://imdb8.p.rapidapi.com/title/get-more-like-this?currentCountry=US&purchaseCountry=US&tconst={mID}");
+                var url = new Uri($"https://imdb8.p.rapidapi.com/title/get-more-like-this?currentCountry=US&purchaseCountry=US&tconst={gID}");
 
                 var response = await client.GetAsync(url);
 
