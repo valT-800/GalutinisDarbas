@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMDBService.Libs", "IMDB.Libs\IMDBService.Libs.csproj", "{068859A9-D971-4F1A-82E6-D29926EE693E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games", "Games\Games.csproj", "{D4F9E83D-FAF2-44E3-8125-3888A2CA3DFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{068859A9-D971-4F1A-82E6-D29926EE693E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{068859A9-D971-4F1A-82E6-D29926EE693E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{068859A9-D971-4F1A-82E6-D29926EE693E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{068859A9-D971-4F1A-82E6-D29926EE693E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4F9E83D-FAF2-44E3-8125-3888A2CA3DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F9E83D-FAF2-44E3-8125-3888A2CA3DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4F9E83D-FAF2-44E3-8125-3888A2CA3DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4F9E83D-FAF2-44E3-8125-3888A2CA3DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {609C7335-83D2-4A54-A2BD-5B2331AB7409}
+	EndGlobalSection
+EndGlobal
