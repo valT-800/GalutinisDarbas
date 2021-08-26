@@ -38,7 +38,7 @@ namespace Games
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Retro games", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RetroGames", Version = "v1" });
             });
         }
 
