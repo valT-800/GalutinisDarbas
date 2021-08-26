@@ -83,13 +83,13 @@ namespace Games
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Game>> PostMovie(Game game)
+        public async Task<ActionResult<Game>> PostGame(Game game)
         {
             _context.Game.Add(game);
             await _context.SaveChangesAsync();
 
             Dictionary<string, string> _Links = new Dictionary<string, string>();
-            _Links.Add("AddPlayedGames", "/api/PlayedGames");
+            _Links.Add("AddPlayed", "/api/Played");
             _Links.Add("AddWishlist", "/api/Wishlist");
 
             return Ok(JsonConvert.SerializeObject(new Model.HATEOAS() { Links = _Links }));

@@ -12,7 +12,7 @@ namespace Games.Model
     /// <param name="Date"> When the game was last time played </param>>
     /// <param name="Rating"> User rating of a game </param>>
     /// <param name="Comment"> Comment about game </param>>
-    public partial class PlayedGames
+    public partial class Played
     {
         [Key]
         [Column("ID")]
@@ -27,7 +27,7 @@ namespace Games.Model
         public string Comment { get; set; }
 
         [ForeignKey(nameof(GameId))]
-        [InverseProperty("PlayedGames")]
+        [InverseProperty("Played")]
         public virtual Game Game { get; set; }
     }
 }

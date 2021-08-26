@@ -14,7 +14,7 @@ namespace Games.Model
         }
 
         public virtual DbSet<Game> Game { get; set; }
-        public virtual DbSet<PlayedGames> PlayedGames { get; set; }
+        public virtual DbSet<Played> Played { get; set; }
         public virtual DbSet<Wishlist> Wishlist { get; set; }
         
 
@@ -23,7 +23,7 @@ namespace Games.Model
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer(@"Server=.\;Database=Games;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-H1FIN35\\SQLEXPRESS;Database=Games;Trusted_Connection=True;");
             }
         }
 
@@ -38,14 +38,14 @@ namespace Games.Model
                 entity.Property(e => e.Name).IsUnicode(false);
             });
 
-            modelBuilder.Entity<PlayedGames>(entity =>
+            modelBuilder.Entity<Played>(entity =>
             {
                 entity.Property(e => e.Comment).IsUnicode(false);
 
                 entity.HasOne(d => d.Game)
-                    .WithMany(p => p.PlayedGames)
+                    .WithMany(p => p.Played)
                     .HasForeignKey(d => d.GameId)
-                    .HasConstraintName("FK__PlayedGames__Game");
+                    .HasConstraintName("FK__Played__Game");
             });
 
             modelBuilder.Entity<Wishlist>(entity =>

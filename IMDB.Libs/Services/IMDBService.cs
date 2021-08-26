@@ -16,7 +16,7 @@ namespace IMDB.Libs.Services
                 client.DefaultRequestHeaders.Add("X-RapidAPI-Host", xRapid_Host);
                 client.DefaultRequestHeaders.Add("X-RapidAPI-Key", xRapid_Key);
 
-                var url = new Uri("https://imdb8.p.rapidapi.com/title/get-top-rated-games");
+                var url = new Uri("https://imdb8.p.rapidapi.com/title/get-top-rated-movies");
 
                 var response = await client.GetAsync(url);
 

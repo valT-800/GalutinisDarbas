@@ -34,7 +34,7 @@ namespace Games.Model
         public DateTime? Date { get; set; }
 
         [InverseProperty("Game")]
-        public virtual ICollection<PlayedGames> PlayedGames { get; set; }
+        public virtual ICollection<Played> Played { get; set; }
         [InverseProperty("Game")]
         public virtual ICollection<Wishlist> Wishlist { get; set; }
     }
