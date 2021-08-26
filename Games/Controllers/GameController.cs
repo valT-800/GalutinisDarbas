@@ -26,14 +26,14 @@ namespace Games
             _context = context;
         }
 
-        // GET: api/Movie
+        // GET: api/Game
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Game>>> GetGame()
         {
             return await _context.Game.ToListAsync();
         }
 
-        // GET: api/Movie/5
+        // GET: api/Game/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Game>> GetGame(int id)
         {

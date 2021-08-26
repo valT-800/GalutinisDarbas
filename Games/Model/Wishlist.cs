@@ -15,7 +15,7 @@ namespace Games.Model
         [Key]
         [Column("ID")]
         public int Id { get; set; }
-        [Column("Game_ID")]
+        [Column("GameId")]
         public int? GameId { get; set; }
         [Column("date")]
         public DateTime? Date { get; set; }

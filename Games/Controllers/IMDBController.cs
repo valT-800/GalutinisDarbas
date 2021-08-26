@@ -22,9 +22,9 @@ namespace Games.Controllers
 
         [HttpGet]
         [Route("imdb8/getSimillar")]
-        public async Task<IActionResult> getSimillar(string mID)
+        public async Task<IActionResult> getSimillar(string gID)
         {
-            var result = await IMDBServices.getSimilarGames(mID);
+            var result = await IMDBServices.getSimilarGames(gID);
 
             return Ok(result);
         }

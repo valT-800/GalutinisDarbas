@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Games.Model
 {
     /// <summary>
-    /// Defines Database table Seen
+    /// Defines Database table Played
     /// </summary>
     /// <param name="Id"> Holds id number </param>>
     /// <param name="GameId"> Links this table with one of chosen games by id</param>>
@@ -17,7 +17,7 @@ namespace Games.Model
         [Key]
         [Column("ID")]
         public int Id { get; set; }
-        [Column("Game_ID")]
+        [Column("GameId")]
         public int? GameId { get; set; }
         [Column("date")]
         public DateTime? Date { get; set; }
