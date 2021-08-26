@@ -17,7 +17,7 @@ namespace Games.Model
     {
         public Game()     
         {
-            PlayedGames = new HashSet<PlayedGames>();
+            Played = new HashSet<Played>();
             Wishlist = new HashSet<Wishlist>();
         }
 
