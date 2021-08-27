@@ -2,21 +2,21 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace IMDB.Libs.Services
+namespace RAWG.Libs.Services
 {
-    public static class IMDBServices
+    public static class RAWGServices
     {
-        private static string xRapid_Host = "imdb8.p.rapidapi.com";
-        private static string xRapid_Key = "3f5bc5a363msh84ab41cb5de7e9bp1d5ed3jsn0d046b228b2f";
+        private static string xRapid_Host = "rawg-video-games-database.p.rapidapi.com";
+        private static string xRapid_Key = "3a3940bc43msh2cd54cf51a2d70bp1490cdjsn7e6a9c45964d";
 
-        public static async Task<string> getTop250()
+        public static async Task<string> getGamesList()
         {
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("X-RapidAPI-Host", xRapid_Host);
                 client.DefaultRequestHeaders.Add("X-RapidAPI-Key", xRapid_Key);
 
-                var url = new Uri("https://imdb8.p.rapidapi.com/title/get-top-rated-movies");
+                var url = new Uri("https://rawg-video-games-database.p.rapidapi.com/games/%7Bgame_pk%7D");
 
                 var response = await client.GetAsync(url);
 
@@ -29,14 +29,14 @@ namespace IMDB.Libs.Services
             }
         }
 
-        public static async Task<string> getSimilarGames(string gID)
+        public static async Task<string> getGameDetails()
         {
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("X-RapidAPI-Host", xRapid_Host);
                 client.DefaultRequestHeaders.Add("X-RapidAPI-Key", xRapid_Key);
 
-                var url = new Uri($"https://imdb8.p.rapidapi.com/title/get-more-like-this?currentCountry=US&purchaseCountry=US&tconst={gID}");
+                var url = new Uri($"https://rawg-video-games-database.p.rapidapi.com/games/%7Bgame_pk%7D");
 
                 var response = await client.GetAsync(url);
 

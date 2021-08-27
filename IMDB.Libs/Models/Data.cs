@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace IMDB.Libs.Models
+namespace RAWG.Libs.Models
 {
     /// <summary>
     /// Defines data for external API results
