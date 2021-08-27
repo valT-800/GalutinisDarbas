@@ -22,9 +22,9 @@ namespace Games.Controllers
 
         [HttpGet]
         [Route("rawg-video-games-database/getGameDetails")]
-        public async Task<IActionResult> getGameDetails()
+        public async Task<IActionResult> getGameDetails(string game_pk)
         {
-            var result = await RAWGServices.getGameDetails();
+            var result = await RAWGServices.getGameDetails(game_pk);
 
             return Ok(result);
         }

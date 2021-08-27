@@ -13,10 +13,10 @@ namespace RAWG.Libs.Services
         {
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("X-RapidAPI-Host", xRapid_Host);
-                client.DefaultRequestHeaders.Add("X-RapidAPI-Key", xRapid_Key);
+                client.DefaultRequestHeaders.Add("x-rapidapi-host", xRapid_Host);
+                client.DefaultRequestHeaders.Add("x-rapidapi-key", xRapid_Key);
 
-                var url = new Uri("https://rawg-video-games-database.p.rapidapi.com/games/%7Bgame_pk%7D");
+                var url = new Uri("https://rawg-video-games-database.p.rapidapi.com/games");
 
                 var response = await client.GetAsync(url);
 
@@ -29,14 +29,14 @@ namespace RAWG.Libs.Services
             }
         }
 
-        public static async Task<string> getGameDetails()
+        public static async Task<string> getGameDetails(string game_pk)
         {
             using (var client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("X-RapidAPI-Host", xRapid_Host);
-                client.DefaultRequestHeaders.Add("X-RapidAPI-Key", xRapid_Key);
+                client.DefaultRequestHeaders.Add("x-rapidapi-host", xRapid_Host);
+                client.DefaultRequestHeaders.Add("x-rapidapi-key", xRapid_Key);
 
-                var url = new Uri($"https://rawg-video-games-database.p.rapidapi.com/games/%7Bgame_pk%7D");
+                var url = new Uri($"https://rawg-video-games-database.p.rapidapi.com/games/%7B{game_pk}%7D");
 
                 var response = await client.GetAsync(url);
 
